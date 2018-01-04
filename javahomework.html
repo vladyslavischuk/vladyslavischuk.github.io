@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Игра угадай слово</title>
+	<style>
+	#conteyner {
+		height: 400px;
+		width: 500px;
+		background-image: url(http://s15.buyreklama.ru/perm/photos/37347883/6afcb0205b30f4faae2f39b0f51d5f80.jpg);
+		border: 4px solid black;
+		text-align: center;
+		font-size: 40px;
+	}
+	#number {
+		height: 100px;
+		width: 100px;
+		border: 2px solid black;
+		float: left;
+		margin-left: 70px;
+		 font-size: 40px;
+	}
+	#button {
+		height: 100px;
+		width: 200px;
+		background-color: red ;
+		font-size: 40px;
+		border: 2px solid black;
+	}
+	#resault {
+		text-align: center;
+		font-size: 40px;
+		display: none;
+	}
+	#attempt{
+		text-align: center;
+		font-size: 40px;
+		display: none;	
+	}
+	</style>
+	<script type="text/javascript">
+ 	var a = Math.random()*10;
+	var b = Math.round(a);
+	console.log(b);
+
+	
+	
+	function homework(){
+	var attempt = document.getElementById('attempt');	
+	var resault = document.getElementById('resault');
+	var number = parseInt(document.getElementById('number').value); 
+	var button = document.getElementById('button'); 
+	if (number > 10)  {
+		resault.style.display = 'block';
+		resault.innerHTML=('Введите число в диапазоне от 0 до 10') ;
+	} else if (number < 0 ) {
+		resault.style.display = 'block';
+		resault.innerHTML=('Введите число в диапазоне от 0 до 10') ;	
+	} else if (number == b) {
+		resault.style.display = 'block';
+		resault.innerHTML=('Вы угадали ваше число ' + b) ;
+		alert('Игра окончена!');
+		button.disabled = 'false';
+	} else if (number > b) {
+		resault.style.display = 'block';
+		resault.innerHTML=('Многовато') ;
+	} else if (number < b) {
+		resault.style.display = 'block';
+		resault.innerHTML=('Маловато') ;
+	} else {
+		resault.style.display = 'block';
+		resault.innerHTML=('Я не знаю єтого значения') ;
+	}
+	
+}
+
+
+
+
+
+</script>
+</head>
+<body>
+<div id="conteyner">Угадай число <br> <br>
+<input type="text" id="number"/>
+<input type="button" value ="Угадай" id="button" onclick="homework()"   /> <br> <br>
+<div id='resault'></div> <br>
+<div id="attempt"></div>
+</div>
+</body>
+</html>
